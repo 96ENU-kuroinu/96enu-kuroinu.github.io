@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./css/style-index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TidyDrive マニュアル</title>
+    <link rel="shortcut icon" type="image/x-icon" href="./images/favicon.ico">
+    <!-- google-adsense -->
+    <meta name="google-adsense-account" content="ca-pub-2961043635944259">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2961043635944259"
+        crossorigin="anonymous"></script>
+    <!-- Google Material Symbols -->
+    <!--Outlinedを読み込む-->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <!--Roundedを読み込む-->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <!--Sharpを読み込む-->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L4VGHLBCMF"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-L4VGHLBCMF');
+</script>
+
+<body>
+    <header style="background-color: #95cf4a;padding: 10px;">
+        <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+            <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                <a itemprop="item" href="https://96enu-kuroinu.github.io/TidyDriveManual/">
+                    <span itemprop="name">🏠TOP</span>
+                </a>
+                <meta itemprop="position" content="1" />
+            </li>
+        </ol>
+        <p id="lastUpdated"></p>
+    </header>
+
+    <div class="contentsbody">
+        <h1>TidyDrive マニュアル</h1>
+        <div style="text-align: center;">
+            <a href="https://play.google.com/store/apps/details?id=com.falhongcha.tidy_drive"><img
+                    src="./images/appIcon.png" alt="" style="border-radius: 10px; width: 250px;"></a>
+        </div>
+        <h2>目次</h2>
+        <div style="text-align: center;">
+            <p><a href="./version-history.html" class="circle-a"><span class="material-symbols-outlined">
+                        receipt_long
+                    </span>バージョン履歴</a></p>
+            <p><a href="./howto-win.html" class="circle-a">🪟Windows版の使用方法</a></p>
+
+            <p><a href="./misskey-setting.html" class="circle-a">Misskeyとの連携</a></p>
+
+            <details class="circle-details">
+                <summary>機能説明</summary>
+                <div>
+                    <p><a href="./limited-function.html" style="display: inline-block; color: white;"><span
+                                class="material-symbols-outlined">
+                                lock
+                            </span>制限付き機能について</a>
+                    </p>
+                    <p><a href="./storage-chart.html" style="display: inline-block; color: white;"><span
+                                class="material-symbols-outlined">clock_loader_10</span>ドライブの使用量表示</a>
+                    </p>
+                    <p><a href="./theme-change.html" style="display: inline-block; color: white;"><span
+                                class="material-symbols-outlined">dark_mode</span>ライトテーマ・ダークテーマの変更</a>
+                    </p>
+                    <p><a href="./list-grid.html" style="display: inline-block; color: white;"><span
+                                class="material-symbols-outlined">preview</span>リスト形式・グリッド形式の変更</a>
+                    </p>
+                </div>
+            </details>
+
+            <p><a href="./inquiry.html" class="circle-a"><span class="material-symbols-outlined">
+                        help
+                    </span>お問い合わせ</a></p>
+            <p><a href="./schedules-history.html" class="circle-a">📅スケジュール予定/履歴</a></p>
+        </div>
+        <div style="text-align: center;">
+        </div>
+        <div style="text-align: center;">
+            <img src="./images/Amazon-logo-RGB.png" alt="固定画像" width="200" style="cursor: pointer;" onclick="
+                redirectToRandomUrl()">
+        </div>
+    </div>
+    <footer>
+        <div id="footer"></div>
+    </footer>
+    <script src="./js/generate-url.js"></script>
+    <script src="./js/load-footer.js"></script>
+    <script src="./js/load-last-update-date.js"></script>
+</body>
+
+
+</html>
