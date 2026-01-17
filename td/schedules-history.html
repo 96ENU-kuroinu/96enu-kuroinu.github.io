@@ -4,11 +4,11 @@
 <head>
 
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="./css/style-notes.css">
-    <link rel="stylesheet" href="./css/details.css">
+    <link rel="stylesheet" href="../css/style-notes.css">
+    <link rel="stylesheet" href="../css/details.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>📅スケジュール予定/履歴</title>
-    <link rel="shortcut icon" type="image/x-icon" href="./images/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="../images/favicon.ico">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js" defer
@@ -38,17 +38,25 @@
     <header style="background-color: #95cf4a;padding: 10px;">
         <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
             <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                <a itemprop="item" href="https://96enu-kuroinu.github.io/TidyDriveManual/">
+                <a itemprop="item" href="https://96enu-kuroinu.github.io">
                     <span itemprop="name">🏠TOP</span>
                 </a>
                 <meta itemprop="position" content="1" />
+
+            </li>
+
+            <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                <a itemprop="item" href="./td-top.html">
+                    <span itemprop="name">TidyDriveマニュアル</span>
+                </a>
+                <meta itemprop="position" content="2" />
             </li>
 
             <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
                 <a itemprop="item" href="./schedules-history.html">
                     <span itemprop="name">📅スケジュール予定/履歴</span>
                 </a>
-                <meta itemprop="position" content="2" />
+                <meta itemprop="position" content="3" />
             </li>
         </ol>
         <p id="lastUpdated"></p>
@@ -124,19 +132,19 @@
             scrolling="no"></iframe>
 
         <div style="text-align: center;">
-            <img src="./images/Amazon-logo-RGB.png" alt="固定画像" width="15%" style="cursor: pointer;" onclick="
+            <img src="../images/Amazon-logo-RGB.png" alt="固定画像" width="15%" style="cursor: pointer;" onclick="
                 redirectToRandomUrl()">
         </div>
     </div>
     <footer>
         <div id="footer"></div>
     </footer>
-    <script src="./js/generate-toc.js"></script>
-    <script src="./js/generate-url.js"></script>
-    <script src="./js/imgAutoResize.js"></script>
-    <script src="./js/load-footer.js"></script>
-    <script src="./js/load-last-update-date.js"></script>
-    <script src="./js/load-version.js"></script>
+    <script src="../js/generate-toc.js"></script>
+    <script src="../js/generate-url.js"></script>
+    <script src="../js/imgAutoResize.js"></script>
+    <script src="../js/load-footer.js"></script>
+    <script src="../js/load-last-update-date.js"></script>
+    <script src="../js/load-version.js"></script>
 </body>
 
 </html>
