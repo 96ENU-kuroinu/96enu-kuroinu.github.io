@@ -13,29 +13,29 @@ function updateSpanText() {
         // Conditional logic to change text based on the data-image value
         let newText = '';
         switch (dataImage) {
-            case 'images/display-initial.png':
+            case '../images/tidydrive/display-initial.png':
                 newText = '初回起動時に表示されるウィンドウ';
                 break;
-            case 'images/display-select-server.png':
+            case '../images/tidydrive/display-select-server.png':
                 newText = 'サーバー一覧画面';
                 break;
-            case 'images/display-select-alternative-server.png':
+            case '../images/tidydrive/display-select-alternative-server.png':
                 newText = 'サーバー一覧に掲載されていないサーバーの選択用ウィンドウ';
                 break;
-            case 'images/display-setting.png':
-            case 'images/display-setting-no-auth.png':
+            case '../images/tidydrive/display-setting.png':
+            case '../images/tidydrive/display-setting-no-auth.png':
                 newText = '設定画面';
                 break;
-            case 'images/display-main.png':
+            case '../images/tidydrive/display-main.png':
                 newText = 'ホーム画面';
                 break;
-            case 'images/display-drawer.png':
+            case '../images/tidydrive/display-drawer.png':
                 newText = 'ドロワー';
                 break;
-            case 'images/display-app-about.png':
+            case '../images/tidydrive/display-app-about.png':
                 newText = 'アプリについての画面';
                 break;
-            case 'images/display-tag-manage.png':
+            case '../images/tidydrive/display-tag-manage.png':
                 newText = 'タグ管理画面';
                 break;
             default:
