@@ -20,8 +20,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // imgタグを作成してaタグに追加
     const img = document.createElement('img');
-    img.src = '../images/falhongcha-logo.png'; // 画像のURLを設定
-    img.onerror = function () { img.src = './images/falhongcha-logo.png'; };
+    img.src = '../imgs/falhongcha-logo.png'; // 画像のURLを設定
+    img.onerror = function () { img.src = './imgs/falhongcha-logo.png'; };
     img.alt = 'サークルロゴ'; // 代替テキストを設定
     img.style.width = '150px';
     a.appendChild(img);

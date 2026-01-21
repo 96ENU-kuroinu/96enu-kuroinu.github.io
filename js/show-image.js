@@ -3,8 +3,8 @@ const imageElement = document.getElementById('hover-image');
 
 textElements.forEach(textElement => {
   textElement.addEventListener('mouseover', (event) => {
-    // テキストの data-image 属性から画像URLを取得
-    const imageUrl = textElement.getAttribute('data-image');
+    // テキストの data-img 属性から画像URLを取得
+    const imageUrl = textElement.getAttribute('data-img');
     imageElement.src = imageUrl;
 
     // 画像を表示
