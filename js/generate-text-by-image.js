@@ -13,6 +13,41 @@ function updateSpanText() {
         // Conditional logic to change text based on the data-img value
         let newText = '';
         switch (dataImage) {
+            // BaconJam
+            case '../imgs/bj/display-server-select.png':
+                newText = 'Misskeyサーバー選択画面';
+                break;
+            case '../imgs/bj/display-setting.png':
+                newText = '設定画面';
+                break;
+            case '../imgs/bj/display-playlist-detail.png':
+                newText = 'プレイリスト詳細画面';
+                break;
+            case '../imgs/bj/display-playlists-2.png':
+                newText = 'プレイリスト一覧画面';
+                break;
+            case '../imgs/bj/display-playlists-1.png':
+                newText = 'プレイリスト一覧画面';
+                break;
+            case '../imgs/bj/display-main.png':
+                newText = 'ホーム画面';
+                break;
+            case '../imgs/bj/display-drawer.png':
+                newText = 'ドロワー';
+                break;
+            case '../imgs/bj/display-channel-select-2.png':
+                newText = '投稿先チャンネル検索画面';
+                break;
+            case '../imgs/bj/display-channel-select-1.png':
+                newText = '投稿先チャンネル検索画面';
+                break;
+            case '../imgs/bj/display-app-about.png':
+                newText = 'アプリについての画面';
+                break;
+            case '../imgs/bj/display-sample-mfm.png':
+                newText = '作例画面';
+                break;
+            // TidyDrive
             case '../imgs/td/display-initial.png':
                 newText = '初回起動時に表示されるウィンドウ';
                 break;
