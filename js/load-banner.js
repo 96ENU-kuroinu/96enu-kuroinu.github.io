@@ -12,4 +12,4 @@ document.addEventListener("DOMContentLoaded", function () {
         : "https://adm.shinobi.jp/s/d803ce14cb8127f899862ee566509aa8";
 
     currentScript.parentNode.appendChild(script);
-})();
+});
