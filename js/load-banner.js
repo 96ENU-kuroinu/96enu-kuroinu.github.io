@@ -13,5 +13,5 @@
     script.async = true;
 
 
-    document.head.appendChild(script);
+    currentScript.parentNode.appendChild(script);
 })();
