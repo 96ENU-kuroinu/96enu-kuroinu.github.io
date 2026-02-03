@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const currentScript = document.currentScript;
+    const container = document.getElementById("ad-banner");
+    if (!container) return;
     const MOBILE_MAX_WIDTH = 767;
 
     const isMobile = window.matchMedia(
@@ -11,5 +12,5 @@ document.addEventListener("DOMContentLoaded", function () {
         ? "https://adm.shinobi.jp/s/86618523177f2c4a1819c7d5733ac04c"
         : "https://adm.shinobi.jp/s/d803ce14cb8127f899862ee566509aa8";
 
-    currentScript.parentNode.appendChild(script);
+    container.appendChild(script);
 });
