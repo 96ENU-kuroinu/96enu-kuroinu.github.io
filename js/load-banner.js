@@ -1,4 +1,4 @@
-(function () {
+document.addEventListener("DOMContentLoaded", function () {
     const currentScript = document.currentScript;
     const MOBILE_MAX_WIDTH = 767;
 
