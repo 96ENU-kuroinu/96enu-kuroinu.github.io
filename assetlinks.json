@@ -1,0 +1,14 @@
+[
+    {
+        "relation": [
+            "delegate_permission/common.handle_all_urls"
+        ],
+        "target": {
+            "namespace": "android_app",
+            "package_name": "com.falhongcha.mispla.debug",
+            "sha256_cert_fingerprints": [
+                "99:18:41:89:9C:7A:43:53:9B:A0:51:DA:95:9E:2F:24:E6:9A:08:88:E6:FB:9B:10:EA:E6:C0:EB:A3:84:56:2A"
+            ]
+        }
+    }
+]
