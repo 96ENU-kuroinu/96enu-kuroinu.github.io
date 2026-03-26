@@ -1,0 +1,19 @@
+{
+    "applinks": {
+        "apps": [],
+        "details": [
+            {
+                "appIDs": [
+                    "8QF7AJZLUD.com.falhongcha.mispla",
+                    "8QF7AJZLUD.com.falhongcha.mispla.debug",
+                    "8QF7AJZLUD.com.falhongcha.mispla.profile"
+                ],
+                "components": [
+                    {
+                        "/": "/detail/*"
+                    }
+                ]
+            }
+        ]
+    }
+}
