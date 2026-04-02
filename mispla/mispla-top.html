@@ -4,25 +4,14 @@
 <head>
 
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="./css/style-index.css">
-    <link rel="stylesheet" href="./css/ad-view.css">
+    <link rel="stylesheet" href="../css/style-index.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Falhong-Cha</title>
-    <link rel="shortcut icon" type="image/x-icon" href="./imgs/favicon.ico">
+    <title>MisPla マニュアル</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../imgs/mispla/favicon.ico">
     <!-- google-adsense -->
     <meta name="google-adsense-account" content="ca-pub-2961043635944259">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2961043635944259"
         crossorigin="anonymous"></script>
-    <!-- Google Material Symbols -->
-    <!--Outlinedを読み込む-->
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <!--Roundedを読み込む-->
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <!--Sharpを読み込む-->
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 
 <!-- Google tag (gtag.js) -->
@@ -44,17 +33,28 @@
                 </a>
                 <meta itemprop="position" content="1" />
             </li>
+            <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                <a itemprop="item" href="./mispla-top.html">
+                    <span itemprop="name">MisPlaマニュアル</span>
+                </a>
+                <meta itemprop="position" content="2" />
+            </li>
         </ol>
         <p id="lastUpdated"></p>
     </header>
 
     <div class="contentsbody">
-        <h1><a href="./bj/bj-top.html">BaconJam マニュアル</a></h1>
-        <p>最新バージョンは<code id="version-baconjam"></code>です。</p>
-        <h1><a href="./td/td-top.html">TidyDrive マニュアル</a></h1>
-        <p>最新バージョンは<code id="version-tidy-drive"></code>です。</p>
-        <h1><a href="./mispla/mispla-top.html">MisPla マニュアル</a></h1>
-        <p>最新バージョンは<code id="version-mispla"></code>です。</p>
+        <h1>MisPla マニュアル</h1>
+        <div style="justify-content: center; display: flex;">
+            <img src="../imgs/mispla/appIcon.png" alt="アプリアイコン"
+                style="border-radius: 10px; width: 250px;margin-right: 10px;">
+            <br>
+        </div>
+        <h2>目次</h2>
+        <div style="text-align: center;">
+            <p><a href="./terms-of-use.html" class="circle-a">利用規約</a></p>
+            <p><a href="./privacy-policy.html" class="circle-a">プライバシーポリシー</a></p>
+        </div>
     </div>
 
     <div id="ad-banner" style="text-align: center;">
@@ -67,13 +67,13 @@
         </div>
     </div>
 
+
     <footer>
         <div id="footer"></div>
     </footer>
-
-    <script src="./js/load-footer.js"></script>
-    <script src="./js/load-last-update-date.js"></script>
-    <script src="./js/load-version.js"></script>
+    <script src="../js/generate-url.js"></script>
+    <script src="../js/load-footer.js"></script>
+    <script src="../js/load-last-update-date.js"></script>
 </body>
 
 

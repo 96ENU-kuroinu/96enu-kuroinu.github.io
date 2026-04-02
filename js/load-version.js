@@ -15,3 +15,12 @@ document.addEventListener("DOMContentLoaded", function () {
         })
     }
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const versionElements = document.querySelectorAll('#version-mispla');
+    if (versionElements) {
+        versionElements.forEach((versionElement) => {
+            versionElement.textContent = "Ver 0.1.0";
+        })
+    }
+});
