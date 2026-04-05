@@ -10,5 +10,17 @@
                 "99:18:41:89:9C:7A:43:53:9B:A0:51:DA:95:9E:2F:24:E6:9A:08:88:E6:FB:9B:10:EA:E6:C0:EB:A3:84:56:2A"
             ]
         }
+    },
+    {
+        "relation": [
+            "delegate_permission/common.handle_all_urls"
+        ],
+        "target": {
+            "namespace": "android_app",
+            "package_name": "com.falhongcha.mispla",
+            "sha256_cert_fingerprints": [
+                "10:C5:75:5E:05:0B:32:0C:55:67:23:61:49:AC:AE:C8:A4:9F:29:BE:53:D8:BE:BC:37:AC:FD:FC:3D:6F:18:B3"
+            ]
+        }
     }
 ]
