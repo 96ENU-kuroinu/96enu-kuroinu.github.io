@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>アプリへ移動中...</title>
+    <script>
+        window.onload = function () {
+            // 1. 現在のパスを取得 (例: /event/123)
+            const path = window.location.pathname;
+
+            // 2. OS 判定
+            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            const isAndroid = /android/i.test(userAgent);
+            const isIOS = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
+
+            // 3. ストア URL
+            const androidStore = "https://play.google.com/store/apps/details?id=com.falhongcha.mispla";
+            const iosStore = "https://apps.apple.com/jp/app/mispla/id6761639750";
+
+            // 4. アプリ起動用のURL (現在のパスをそのまま使用)
+            // アプリがインストールされていれば、このURLに反応してApp Linksが起動します
+            const appUrl = "https://96enu-kuroinu.github.io" + path;
+
+            if (isAndroid || isIOS) {
+                // まずアプリ起動を試みる
+                window.location.href = appUrl;
+
+                // アプリがない場合、1秒後にストアへ
+                setTimeout(function () {
+                    // ここで再度チェック（ブラウザがバックグラウンドに回っていなければ実行される）
+                    window.location.href = isAndroid ? androidStore : iosStore;
+                }, 1000);
+            } else {
+                // PCの場合は、一応トップページかイベントページへ飛ばす
+                window.location.href = "https://96enu-kuroinu.github.io/mispla/mispla-top.html";
+            }
+        };
+    </script>
+</head>
+
+<body>
+    <p>アプリを起動しています...<br>自動的に切り替わらない場合はストアを確認してください。</p>
+</body>
+
+</html>
