@@ -8,9 +8,9 @@
     <script>
         window.onload = function () {
             const url = new URL(window.location.href);
-            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            const userAgent = navigator.userAgent.toLowerCase() || navigator.vendor || window.opera;
             const isAndroid = /android/i.test(userAgent);
-            const isIOS = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
+            const isIOS = /ipad|macintosh|iphone|ipod/.test(userAgent) && !window.MSStream;
 
             const androidStore = "https://play.google.com/store/apps/details?id=com.falhongcha.mispla&hl=ja";
             const iosStore = "https://apps.apple.com/jp/app/mispla/id6761639750";
