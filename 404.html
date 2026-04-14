@@ -3,44 +3,48 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>アプリへ移動中...</title>
     <script>
         window.onload = function () {
-            // 1. 現在のパスを取得 (例: /event/123)
-            const path = window.location.pathname;
-
-            // 2. OS 判定
+            const url = new URL(window.location.href);
             const userAgent = navigator.userAgent || navigator.vendor || window.opera;
             const isAndroid = /android/i.test(userAgent);
             const isIOS = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
 
-            // 3. ストア URL
             const androidStore = "https://play.google.com/store/apps/details?id=com.falhongcha.mispla&hl=ja";
             const iosStore = "https://apps.apple.com/jp/app/mispla/id6761639750";
 
-            // 4. アプリ起動用のURL (現在のパスをそのまま使用)
-            // アプリがインストールされていれば、このURLに反応してApp Linksが起動します
-            const appUrl = "https://96enu-kuroinu.github.io" + path;
+            // 無限ループ防止用のフラグをチェック
+            if (url.searchParams.get('redirected') === 'true') {
+                // すでに一度アプリ起動を試みてここに戻ってきた＝アプリがない
+                window.location.href = isAndroid ? androidStore : iosStore;
+                return;
+            }
 
             if (isAndroid || isIOS) {
-                // まずアプリ起動を試みる
+                // 次回このページに来た時に「ストア行き」にするためのフラグを付けてリダイレクト
+                url.searchParams.set('redirected', 'true');
+                const appUrl = url.toString();
+
+                // アプリ起動を試みる
                 window.location.href = appUrl;
 
-                // アプリがない場合、1秒後にストアへ
+                // アプリが起動しなかった場合、1.5秒後に自らリロード（フラグ付きなので次はストアへ）
                 setTimeout(function () {
-                    // ここで再度チェック（ブラウザがバックグラウンドに回っていなければ実行される）
-                    window.location.href = isAndroid ? androidStore : iosStore;
-                }, 1000);
+                    window.location.href = appUrl;
+                }, 1500);
             } else {
-                // PCの場合は、一応トップページかイベントページへ飛ばす
-                window.location.href = "https://96enu-kuroinu.github.io/mispla/mispla-top.html";
+                // PCの場合はトップへ
+                window.location.href = "https://96enu-kuroinu.github.io/";
             }
         };
     </script>
 </head>
 
 <body>
-    <p>アプリを起動しています...<br>自動的に切り替わらない場合はストアを確認してください。</p>
+    <p>アプリを起動しています...<br>切り替わらない場合は<a
+            href="https://play.google.com/store/apps/details?id=com.falhongcha.mispla&hl=ja">こちら</a>。</p>
 </body>
 
 </html>
