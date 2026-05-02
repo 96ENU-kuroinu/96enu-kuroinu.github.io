@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const versionElements = document.querySelectorAll('#version-mispla');
   if (versionElements) {
     versionElements.forEach((versionElement) => {
-      versionElement.textContent = "Ver 1.0.1";
+      versionElement.textContent = "Ver 1.0.4";
     })
   }
 });
