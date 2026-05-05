@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="../css/style-notes.css">
+  <link rel="stylesheet" href="../css/ad-view.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>❓お問い合わせ</title>
+  <link rel="shortcut icon" type="image/x-icon" href="../imgs/mispla/favicon.ico">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js" defer
+    type="text/javascript"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  <!-- Google font Icon -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <!-- google-adsense -->
+  <meta name="google-adsense-account" content="ca-pub-2961043635944259">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2961043635944259"
+    crossorigin="anonymous"></script>
+  <!-- Google Material Symbols -->
+  <!--Outlinedを読み込む-->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <!--Roundedを読み込む-->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <!--Sharpを読み込む-->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+
+<body>
+  <header style="background-color: #95cf4a;padding: 10px;">
+    <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="../">
+          <span itemprop="name">🏠TOP</span>
+        </a>
+        <meta itemprop="position" content="1" />
+
+      </li>
+
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="./mispla-top.html">
+          <span itemprop="name">MisPlaマニュアル</span>
+        </a>
+        <meta itemprop="position" content="2" />
+      </li>
+
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="./tag-format.html">
+          <span itemprop="name">タグのフォーマット</span>
+        </a>
+        <meta itemprop="position" content="3" />
+      </li>
+    </ol>
+    <p id="lastUpdated"></p>
+  </header>
+
+  <div class="contentsbody">
+    <h1>タグのフォーマット</h1>
+    <p>タグは、検索性向上のために入力された一部の文字を置き換えて登録しています(フォーマット)。パターンは以下の通りです。</p>
+    <table class="table-design">
+      <tbody>
+        <tr>
+          <td class="invisible"></td>
+          <td class="title-top-left">フォーマット前</td>
+          <td class="title-top-right">フォーマット後</td>
+        </tr>
+
+        <tr>
+          <td class="title-top-left">アルファベット</td>
+          <td>
+            <ol>
+              <li><code>Ａ</code>〜<code>Ｚ</code>(全角)</li>
+              <li><code>A</code>〜<code>Z</code>(半角)</li>
+            </ol>
+          </td>
+          <td>
+            <p><code>A</code>〜<code>Z</code>(半角)</p>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="title">数字</td>
+          <td>
+            <ol>
+              <li><code>１</code>〜<code>０</code>(全角)</li>
+              <li><code>1</code>〜<code>0</code>(半角)</li>
+            </ol>
+          </td>
+          <td>
+            <p><code>1</code>〜<code>0</code>(半角)</p>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="title">スペース系</td>
+          <td>
+            <ol>
+              <li><code>U+0009</code>：水平タブ</li>
+              <li><code>U+000A</code>：改行(<code>LF</code>)</li>
+              <li><code>U+000B</code>：垂直タブ</li>
+              <li><code>U+000C</code>：改行(<code>FF</code>)</li>
+              <li><code>U+000D</code>：改行(<code>CR</code>)</li>
+              <li><code>U+0020</code>：半角スペース</li>
+              <li><code>U+00A0</code>：改行なしスペース</li>
+              <li><code>U+00AD</code>：ソフトハイフン</li>
+              <li><code>U+034F</code>：ダイアクリティカルマーク</li>
+              <li><code>U+061C</code>：アラビア文字マーク</li>
+              <li><code>U+115F</code>：ハングル初声フィラー</li>
+              <li><code>U+1160</code>：ハングル中声フィラー</li>
+              <li><code>U+1680</code>：オガムスペースマーク</li>
+              <li><code>U+17B4</code>：クメール母音固有のaq</li>
+              <li><code>U+17B5</code>：クメール語の母音固有のaa</li>
+              <li><code>U+180B</code>：モンゴル異体字セレクタ1</li>
+              <li><code>U+180C</code>：モンゴル異体字セレクタ2</li>
+              <li><code>U+180D</code>：モンゴル異体字セレクタ3</li>
+              <li><code>U+180E</code>：モンゴル語母音セパレータ</li>
+              <li><code>U+2000</code>：enクワッド</li>
+              <li><code>U+2001</code>：emクワッド</li>
+              <li><code>U+2002</code>：enスペース</li>
+              <li><code>U+2003</code>：emスペース</li>
+              <li><code>U+2004</code>：emスペースの\( \cfrac{1}{3} \)</li>
+              <li><code>U+2005</code>：emスペースの\( \cfrac{1}{4} \)</li>
+              <li><code>U+2006</code>：emスペースの\( \cfrac{1}{6} \)</li>
+              <li><code>U+2007</code>：固定幅の数字と同じ幅のスペース</li>
+              <li><code>U+2008</code>：ピリオドと同じ幅のスペース</li>
+              <li><code>U+2009</code>：シンスペース(emスペースの\( \cfrac{1}{4} \) 〜 \( \cfrac{1}{6} \))</li>
+              <li><code>U+200A</code>：ヘアスペース(シンスペースよりも狭い)</li>
+              <li><code>U+200B</code>：ゼロ幅スペース</li>
+              <li><code>U+200C</code>：ゼロ幅ノンジョイナー</li>
+              <li><code>U+200D</code>：ゼロ幅ジョイナー</li>
+              <li><code>U+200E</code>：左から右へのマーク</li>
+              <li><code>U+200F</code>：右から左へのマーク</li>
+              <li><code>U+202A</code>：左から右への埋め込み</li>
+              <li><code>U+202B</code>：右から左への埋め込み</li>
+              <li><code>U+202C</code>：ポップ方向書式設定</li>
+              <li><code>U+202D</code>：左から右への上書き</li>
+              <li><code>U+202E</code>：右から左への上書き</li>
+              <li><code>U+202F</code>：狭い改行なしスペース</li>
+              <li><code>U+205F</code>：中程度の数学的スペース(\( \cfrac{4}{18} \) em)</li>
+              <li><code>U+2060</code>：ワードジョイナー</li>
+              <li><code>U+2061</code>：関数の適用</li>
+              <li><code>U+2062</code>：2項の乗算</li>
+              <li><code>U+2063</code>：2項のセパレータ</li>
+              <li><code>U+2064</code>：2項の加算</li>
+              <li><code>U+2065</code>：未定義</li>
+              <li><code>U+2066</code>：左から右への分離</li>
+              <li><code>U+2067</code>：右から左への分離</li>
+              <li><code>U+2068</code>：最初の強力な分離</li>
+              <li><code>U+2069</code>：ポップ方向分離</li>
+              <li><code>U+206A</code>：対称的なスワッピングを禁止にする</li>
+              <li><code>U+206B</code>：対称的なスワッピングを有効にする</li>
+              <li><code>U+206C</code>：アラビア語の整形をオフにする</li>
+              <li><code>U+206D</code>：アラビア語の整形をオンにする</li>
+              <li><code>U+206E</code>：ナショナル数字シェーピング</li>
+              <li><code>U+206F</code>：名目上の数字のシェーピング</li>
+              <li><code>U+2800</code>：点字文字の空白</li>
+              <li><code>U+3000</code>：全角スペース</li>
+              <li><code>U+3164</code>：ハングルフィラー</li>
+              <li><code>U+FEFF</code>：ゼロ幅の改行なしスペース</li>
+              <li><code>U+FFA0</code>：半角ハングルフィラー</li>
+              <li><code>U+FFF9</code>：注釈付きテキストの開始</li>
+              <li><code>U+FFFA</code>：注釈文字の開始</li>
+              <li><code>U+FFFB</code>：注釈ブロックの終わり</li>
+              <li><code>U+FFFC</code>：置換記号</li>
+              <li><code>U+133FC</code>：ヒエログリフの3</li>
+              <li><code>U+1D000</code>：グラゴル文字のブッキー</li>
+              <li><code>U+1D0F0</code>：グラゴル文字のエル</li>
+              <li><code>U+1D100</code>：グラゴル文字のアズ</li>
+              <li><code>U+1D129</code>：グラゴル文字のユス</li>
+              <li><code>U+1D130</code>：グラゴル文字のイジツァ</li>
+              <li><code>U+1D13F</code>：グラゴル文字のヤット</li>
+              <li><code>U+1D140</code>：グラゴル文字のフィタ</li>
+              <li><code>U+1D145</code>：グラゴル文字のフィタ</li>
+              <li><code>U+1D150</code>：音楽記号の「右向き白抜きの三角形の音符」</li>
+              <li><code>U+1D159</code>：音楽記号の「符頭(なし)」</li>
+              <li><code>U+1D173</code>：音楽記号の「ビーム(開始)」</li>
+              <li><code>U+1D174</code>：音楽記号の「ビーム(終わり)」</li>
+              <li><code>U+1D175</code>：音楽記号の「タイ(開始)」</li>
+              <li><code>U+1D176</code>：音楽記号の「タイ(終わり)」</li>
+              <li><code>U+1D177</code>：音楽記号の「スラー(開始)」</li>
+              <li><code>U+1D178</code>：音楽記号の「スラー(終わり)」</li>
+              <li><code>U+1D179</code>：音楽記号の「開始フレーズ」</li>
+              <li><code>U+1D17A</code>：音楽記号の「終了フレーズ」</li>
+            </ol>
+          </td>
+          <td>
+            <p>削除</p>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="title">直線系<br>(ハイフンマイナス)</td>
+          <td>
+            <ol>
+              <li><code>U+002D</code>：半角のハイフンマイナス</li>
+              <li><code>U+FF0D</code>：全角のハイフンマイナス</li>
+              <li><code>U+FF63</code>：スモールハイフンマイナス</li>
+            </ol>
+          </td>
+          <td>
+            <p><code>U+002D</code>：半角のハイフンマイナス</p>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="title">直線系<br>(ハイフン)</td>
+          <td>
+            <ol>
+              <li><code>U+2010</code>：ハイフン</li>
+              <li><code>U+2043</code>：ビュレットとして使うハイフン</li>
+              <li><code>U+2011</code>：右端で折り返さないハイフン</li>
+            </ol>
+          </td>
+          <td>
+            <p><code>U+2010</code>：ハイフン</p>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="title">直線系<br>(マイナス)</td>
+          <td>
+            <ol>
+              <li><code>U+2212</code>：全角マイナス</li>
+              <li><code>U+02D7</code>：飾り付きマイナス</li>
+              <li><code>U+2796</code>：太いマイナス</li>
+              <li><code>U+208B</code>：下付きマイナス</li>
+            </ol>
+          </td>
+          <td>
+            <p><code>U+2212</code>：全角マイナス</p>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="title">直線系<br>(ダッシュ)</td>
+          <td>
+            <ol>
+              <li><code>U+2012</code>：フィギュアダッシュ</li>
+              <li><code>U+2013</code>：enダッシュ</li>
+              <li><code>U+2014</code>：emダッシュ</li>
+              <li><code>U+FE58</code>：小さいmの幅のダッシュ</li>
+              <li><code>U+2E3A</code>：emの2倍の横幅のダッシュ</li>
+              <li><code>U+2E3B</code>：emの3倍の横幅のダッシュ</li>
+            </ol>
+          </td>
+          <td>
+            <p><code>U+2012</code>：フィギュアダッシュ</p>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="title">直線系<br>(水平線)</td>
+          <td>
+            <ol>
+              <li><code>U+2015</code>：水平バー</li>
+              <li><code>U+23AF</code>：水平線</li>
+              <li><code>U+s3E4</code>：直線</li>
+            </ol>
+          </td>
+          <td>
+            <p><code>U+2015</code>：水平バー</p>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="title">直線系<br>(罫線)</td>
+          <td>
+            <ol>
+              <li><code>U+2500</code>：細い罫線</li>
+              <li><code>U+2501</code>：太い罫線</li>
+              <li><code>U+2574</code>：左寄りの細い罫線</li>
+              <li><code>U+2576</code>：右寄りの細い罫線</li>
+              <li><code>U+2578</code>：左寄りの太い罫線</li>
+              <li><code>U+257A</code>：右寄りの太い罫線</li>
+              <li><code>U+257C</code>：左が細く、右が太い罫線</li>
+              <li><code>U+257E</code>：左が太く、右が太い罫線</li>
+            </ol>
+          </td>
+          <td>
+            <p><code>U+2500</code>：細い罫線</p>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="title">直線系<br>(長音記号)</td>
+          <td>
+            <ol>
+              <li><code>U+30FC</code>：長音記号</li>
+              <li><code>U+FF70</code>：半角の長音記号</li>
+              <li><code>U+00AF</code>：長音符号</li>
+              <li><code>U+02C9</code>：飾り付き長音記号</li>
+              <li><code>U+FFE3</code>：全角長音記号</li>
+              <li><code>U+02CD</code>：飾り付き下付き長音記号</li>
+            </ol>
+          </td>
+          <td>
+            <p><code>U+30FC</code>：長音記号</p>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="title">直線系<br>(漢数字)</td>
+          <td>
+            <ol>
+              <li><code>U+4E00</code>：漢数字のイチ</li>
+              <li><code>U+2F00</code>：漢字の部首のイチ</li>
+              <li><code>U+3192</code>：漢文の返点のイチ</li>
+              <li><code>U+31D0</code>：漢字の筆画としてのイチ</li>
+            </ol>
+          </td>
+          <td>
+            <p><code>U+4E00</code>：漢数字のイチ</p>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="title">波線系</td>
+          <td>
+            <ol>
+              <li><code>U+301C</code>：波ダッシュ(Macの<code>〜</code>)</li>
+              <li><code>U+FF5E</code>：全角チルダ(Windowsの<code>～</code>)</li>
+            </ol>
+          </td>
+          <td><code>U+FF5E</code>全角チルダ(Windowsの<code>～</code>)</td>
+        </tr>
+
+        <tr>
+          <td class="title" rowspan="6">記号系<br>(半角へ統一)</td>
+          <td>
+            <ol>
+              <li><code>U+266F</code>：音楽記号の♯</li>
+              <li><code>U+FF03</code>：全角の＃</li>
+              <li><code>U+0023</code>：半角の#</li>
+            </ol>
+          </td>
+          <td>
+            <code>U+0023</code>：半角の#
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <ol>
+              <li><code>，</code>、<code>．</code>：全角のピリカン</li>
+              <li><code>,</code>、<code>.</code>：半角のピリカン</li>
+            </ol>
+          </td>
+          <td>
+            <code>,</code>、<code>.</code>：半角のピリカン
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <ol>
+              <li><code>（）</code>、<code>｛｝</code>、<code>［］</code>：全角の小・中・大括弧
+              </li>
+              <li><code>()</code>、<code>{}</code>、<code>[]</code>：半角の小・中・大括弧
+              </li>
+            </ol>
+          </td>
+          <td>
+            <code>()</code>、<code>{}</code>、<code>[]</code>：半角の小・中・大括弧
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <ol>
+              <li><code>“</code>：全角ダブルクォーテーションの開始</li>
+              <li><code>”</code>：全角ダブルクォーテーションの終了</li>
+              <li><code>"</code>：半角ダブルクォーテーション</li>
+            </ol>
+          </td>
+          <td>
+            <code>"</code>：半角ダブルクォーテーション
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <ol>
+              <li><code>‘</code>：全角シングルクォーテーションの開始</li>
+              <li><code>’</code>：全角シングルクォーテーションの終了</li>
+              <li><code>'</code>：半角シングルクォーテーション</li>
+            </ol>
+          </td>
+          <td>
+            <code>'</code>：半角シングルクォーテーション
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <p>その他、全角と半角が存在する一般的な記号類</p>
+            <ol>
+              <li><code>:</code></li>
+              <li><code>;</code></li>
+              <li><code>¥</code></li>
+              <li><code>|</code></li>
+              <li><code>^</code></li>
+              <li><code>+</code></li>
+              <li><code>*</code></li>
+              <li><code>/</code></li>
+              <li><code>\</code></li>
+              <li><code>=</code></li>
+              <li><code><</code></li>
+              <li><code>></code></li>
+              <li><code>%</code></li>
+              <li><code>!</code></li>
+              <li><code>?</code></li>
+              <li><code>&</code></li>
+              <li><code>@</code></li>
+              <li><code>_</code></li>
+            </ol>
+          </td>
+          <td>
+            <p>半角へ統一</p>
+          </td>
+        </tr>
+
+
+
+
+        <tr>
+          <td class="title-bottom-left">記号系<br>(全角へ統一)</td>
+          <td>
+            <ol>
+              <li><code>・</code>：全角の中点</li>
+              <li><code>･</code>：半角の中点</li>
+            </ol>
+          </td>
+          <td class="detail-bottom-right">
+            <code>・</code>：全角の中点
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div id="ad-banner" style="text-align: center;">
+    <div class="ad-pc">
+      <script src="https://adm.shinobi.jp/s/d803ce14cb8127f899862ee566509aa8"></script>
+    </div>
+
+    <div class="ad-sp">
+      <script src="https://adm.shinobi.jp/s/86618523177f2c4a1819c7d5733ac04c"></script>
+    </div>
+  </div>
+
+  <footer>
+    <div id="footer"></div>
+  </footer>
+
+  <script src="../js/generate-toc.js"></script>
+  <script src="../js/imgAutoResize.js"></script>
+  <script src="../js/load-footer.js"></script>
+  <script src="../js/load-last-update-date.js"></script>
+  <script src="../js/load-version.js"></script>
+  <script src="../js/to-top.js"></script>
+</body>
+
+</html>
