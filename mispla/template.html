@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="../css/style-notes.css">
+  <link rel="stylesheet" href="../css/ad-view.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>イベント一覧</title>
+  <link rel="shortcut icon" type="image/x-icon" href="../imgs/mispla/favicon.ico">
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+
+    h1 {
+      font-size: 1.4rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .meta {
+      font-size: 0.8rem;
+      color: #666;
+      margin-bottom: 1rem;
+    }
+
+    /* フィルター */
+    .filters {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .filters input[type="text"],
+    .filters select {
+      font-size: 0.875rem;
+      padding: 0.3rem 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .filters input[type="text"] {
+      width: 200px;
+    }
+
+    .filters label {
+      font-size: 0.875rem;
+    }
+
+    #resultCount {
+      font-size: 0.8rem;
+      color: #666;
+      margin-left: auto;
+    }
+
+    /* テーブル */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.875rem;
+    }
+
+    th {
+      text-align: left;
+      border-bottom: 2px solid #333;
+      padding: 0.4rem 0.6rem;
+      white-space: nowrap;
+    }
+
+    td {
+      border-bottom: 1px solid #ddd;
+      padding: 0.5rem 0.6rem;
+      vertical-align: top;
+    }
+
+    tr.past td {
+      color: #999;
+    }
+
+    tr.event-row {
+      cursor: pointer;
+    }
+
+    tr.event-row:hover td {
+      background: #f5f5f5;
+    }
+
+    .past-badge {
+      font-size: 0.7rem;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      padding: 0 4px;
+      color: #999;
+      margin-left: 4px;
+    }
+
+    /* モーダル */
+    dialog {
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      padding: 1.5rem;
+      max-width: 560px;
+      width: 100%;
+    }
+
+    dialog::backdrop {
+      background: rgba(0, 0, 0, 0.4);
+    }
+
+    dialog h2 {
+      font-size: 1.1rem;
+      margin: 0 0 1rem;
+    }
+
+    .detail-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.875rem;
+      margin-bottom: 1rem;
+    }
+
+    .detail-table th {
+      text-align: left;
+      width: 5rem;
+      padding: 0.3rem 0.5rem 0.3rem 0;
+      color: #555;
+      font-weight: normal;
+      vertical-align: top;
+    }
+
+    .detail-table td {
+      padding: 0.3rem 0;
+    }
+
+    .description-box {
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 0.6rem;
+      font-size: 0.85rem;
+      white-space: pre-wrap;
+      margin-bottom: 1rem;
+      max-height: 150px;
+      overflow-y: auto;
+    }
+
+    .participants-section h3 {
+      font-size: 0.875rem;
+      margin: 0 0 0.5rem;
+    }
+
+    .participant-group {
+      margin-bottom: 0.75rem;
+    }
+
+    .participant-group-label {
+      font-size: 0.8rem;
+      color: #555;
+      margin-bottom: 0.3rem;
+    }
+
+    .participant-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .participant-chip {
+      font-size: 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      padding: 0.1rem 0.4rem;
+      text-decoration: none;
+      color: #333;
+    }
+
+    .participant-chip:hover {
+      background: #f0f0f0;
+    }
+
+    .tags-section {
+      margin-bottom: 1rem;
+    }
+
+    .tags-section h3 {
+      font-size: 0.875rem;
+      margin: 0 0 0.4rem;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .tag-chip {
+      font-size: 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      padding: 0.1rem 0.5rem;
+      background: #f5f5f5;
+      color: #333;
+    }
+
+    .dialog-close {
+      display: inline-block;
+      margin-top: 1rem;
+      font-size: 0.875rem;
+    }
+
+    .no-data {
+      color: #888;
+      font-size: 0.875rem;
+      padding: 2rem 0;
+      text-align: center;
+    }
+
+    footer {
+      margin-top: 2rem;
+      font-size: 0.75rem;
+      color: #888;
+      border-top: 1px solid #ddd;
+      padding-top: 0.75rem;
+    }
+  </style>
+</head>
+
+<body>
+  <header style="background-color: #95cf4a;padding: 10px;">
+    <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="../../">
+          <span itemprop="name">🏠TOP</span>
+        </a>
+        <meta itemprop="position" content="1" />
+
+      </li>
+
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="../../mispla-top.html">
+          <span itemprop="name">MisPlaマニュアル</span>
+        </a>
+        <meta itemprop="position" content="2" />
+      </li>
+
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="./events.html">
+          <span itemprop="name">イベント一覧</span>
+        </a>
+        <meta itemprop="position" content="3" />
+      </li>
+    </ol>
+    <p id="lastUpdated"></p>
+  </header>
+
+
+  <h1>イベント一覧</h1>
+  <p class="meta">最終更新: <span id="lastUpdated">--</span> ／ 表示専用ページです。参加状態の変更はアプリからどうぞ。</p>
+
+  <div class="filters">
+    <input type="text" id="searchInput" placeholder="イベント名で検索">
+    <select id="areaFilter">
+      <option value="">すべてのエリア</option>
+    </select>
+    <label>
+      <input type="checkbox" id="hideEndedFilter" checked>
+      終了済みを隠す
+    </label>
+    <span id="resultCount"></span>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>イベント名</th>
+        <th>開始</th>
+        <th>エリア</th>
+        <th>参加 / 定員</th>
+      </tr>
+    </thead>
+    <tbody id="eventTbody"></tbody>
+  </table>
+
+  <p class="no-data" id="noData" style="display:none">該当するイベントはありません</p>
+
+  <dialog id="detailDialog">
+    <h2 id="dTitle"></h2>
+    <table class="detail-table">
+      <tr>
+        <th>主催者</th>
+        <td id="dHost"></td>
+      </tr>
+      <tr>
+        <th>開始</th>
+        <td id="dStart"></td>
+      </tr>
+      <tr>
+        <th>終了</th>
+        <td id="dEnd"></td>
+      </tr>
+      <tr>
+        <th>エリア</th>
+        <td id="dArea"></td>
+      </tr>
+      <tr>
+        <th>場所</th>
+        <td id="dPlace"></td>
+      </tr>
+      <tr>
+        <th>定員</th>
+        <td id="dCapacity"></td>
+      </tr>
+    </table>
+    <div id="dDescWrap">
+      <p style="font-size:0.8rem;color:#555;margin:0 0 0.3rem">概要</p>
+      <div class="description-box" id="dDesc"></div>
+    </div>
+    <div class="tags-section" id="dTagsWrap">
+      <h3>タグ</h3>
+      <div class="tag-list" id="dTags"></div>
+    </div>
+    <div class="participants-section">
+      <h3>参加者</h3>
+      <div id="dParticipants"></div>
+    </div>
+    <a href="#" class="dialog-close" id="dialogClose">閉じる</a>
+  </dialog>
+
+  <div id="ad-banner" style="text-align: center;">
+    <div class="ad-pc">
+      <script src="https://adm.shinobi.jp/s/d803ce14cb8127f899862ee566509aa8"></script>
+    </div>
+
+    <div class="ad-sp">
+      <script src="https://adm.shinobi.jp/s/86618523177f2c4a1819c7d5733ac04c"></script>
+    </div>
+  </div>
+
+  <footer>
+    <div id="footer"></div>
+  </footer>
+
+  <script src="../js/imgAutoResize.js"></script>
+  <script src="../js/load-footer.js"></script>
+  <script src="../js/load-last-update-date.js"></script>
+  <script>
+    const EVENTS_DATA = __EVENTS_JSON__;
+    const AREA_NAMES = __AREA_NAMES_JSON__;
+    const GENERATED_AT = "__GENERATED_AT__";
+
+    const STATUS_LABELS = { join: '参加者', thinking: '検討中', cancel: '不参加' };
+
+    document.getElementById('lastUpdated').textContent = GENERATED_AT;
+
+    // エリアフィルター生成
+    const usedAreas = [...new Set(EVENTS_DATA.map(e => e.area_code).filter(Boolean))];
+    const areaSelect = document.getElementById('areaFilter');
+    usedAreas.forEach(code => {
+      const opt = document.createElement('option');
+      opt.value = code;
+      opt.textContent = AREA_NAMES[code] || code;
+      areaSelect.appendChild(opt);
+    });
+
+    function fmtDate(iso) {
+      if (!iso) return '未定';
+      return new Date(iso).toLocaleString('ja-JP', {
+        year: 'numeric', month: '2-digit', day: '2-digit',
+        hour: '2-digit', minute: '2-digit', timeZone: 'UTC'
+      });
+    }
+
+    function isPast(endTime) {
+      return endTime && new Date(endTime) < new Date();
+    }
+
+    function esc(s) {
+      return String(s)
+        .replace(/&/g, '&amp;').replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
+
+    function renderTable() {
+      const search = document.getElementById('searchInput').value.trim().toLowerCase();
+      const area = areaSelect.value;
+      const hideEnded = document.getElementById('hideEndedFilter').checked;
+
+      const filtered = EVENTS_DATA.filter(e => {
+        if (hideEnded && isPast(e.end_time)) return false;
+        if (area && e.area_code !== area) return false;
+        if (search && !e.title.toLowerCase().includes(search)) return false;
+        return true;
+      });
+
+      document.getElementById('resultCount').textContent = filtered.length + ' 件';
+
+      const tbody = document.getElementById('eventTbody');
+      tbody.innerHTML = '';
+      document.getElementById('noData').style.display = filtered.length === 0 ? 'block' : 'none';
+
+      filtered.forEach(e => {
+        const joinCount = (e.participants || []).filter(p => p.status === 'join').length;
+        const past = isPast(e.end_time);
+        const tr = document.createElement('tr');
+        tr.className = 'event-row' + (past ? ' past' : '');
+        tr.innerHTML =
+          '<td>' + esc(e.title) + (past ? '<span class="past-badge">終了</span>' : '') + '</td>' +
+          '<td style="white-space:nowrap">' + fmtDate(e.start_time) + '</td>' +
+          '<td>' + esc(AREA_NAMES[e.area_code] || e.area_code || '未定') + '</td>' +
+          '<td style="white-space:nowrap">' + joinCount + ' / ' + e.max_participants + '</td>';
+        tr.addEventListener('click', () => openDialog(e));
+        tbody.appendChild(tr);
+      });
+    }
+
+    const dialog = document.getElementById('detailDialog');
+
+    function openDialog(e) {
+      const joinCount = (e.participants || []).filter(p => p.status === 'join').length;
+      document.getElementById('dTitle').textContent = e.title;
+      document.getElementById('dHost').textContent = e.host_name + '(@' + e.host_username + '@' + e.host_host + ')';
+      document.getElementById('dStart').textContent = fmtDate(e.start_time);
+      document.getElementById('dEnd').textContent = fmtDate(e.end_time);
+      document.getElementById('dArea').textContent = AREA_NAMES[e.area_code] || e.area_code || '未定';
+      document.getElementById('dPlace').textContent = e.place || '未定';
+      document.getElementById('dCapacity').textContent = joinCount + ' / ' + e.max_participants + ' 人';
+
+      const descWrap = document.getElementById('dDescWrap');
+      if (e.description) {
+        descWrap.style.display = '';
+        document.getElementById('dDesc').textContent = e.description;
+      } else {
+        descWrap.style.display = 'none';
+      }
+
+      const tagsWrap = document.getElementById('dTagsWrap');
+      const tags = e.tags || [];
+      if (tags.length) {
+        tagsWrap.style.display = '';
+        const tagList = document.getElementById('dTags');
+        tagList.innerHTML = '';
+        tags.forEach(t => {
+          const span = document.createElement('span');
+          span.className = 'tag-chip';
+          span.textContent = '#' + t;
+          tagList.appendChild(span);
+        });
+      } else {
+        tagsWrap.style.display = 'none';
+      }
+
+      const pContainer = document.getElementById('dParticipants');
+      pContainer.innerHTML = '';
+      const groups = { join: [], thinking: [], cancel: [] };
+      (e.participants || []).forEach(p => { if (groups[p.status]) groups[p.status].push(p); });
+
+      let hasAny = false;
+      Object.entries(groups).forEach(function (entry) {
+        const status = entry[0], users = entry[1];
+        if (!users.length) return;
+        hasAny = true;
+        const grp = document.createElement('div');
+        grp.className = 'participant-group';
+        const label = document.createElement('div');
+        label.className = 'participant-group-label';
+        label.textContent = STATUS_LABELS[status] + '（' + users.length + '人）';
+        grp.appendChild(label);
+        const list = document.createElement('div');
+        list.className = 'participant-list';
+        users.forEach(u => {
+          const a = document.createElement('a');
+          a.className = 'participant-chip';
+          a.href = 'https://' + u.host + '/@' + u.username;
+          a.target = '_blank';
+          a.rel = 'noopener noreferrer';
+          a.textContent = u.name || u.username || '';
+          list.appendChild(a);
+        });
+        grp.appendChild(list);
+        pContainer.appendChild(grp);
+      });
+
+      if (!hasAny) pContainer.textContent = '参加者はまだいません';
+
+      dialog.showModal();
+    }
+
+    document.getElementById('dialogClose').addEventListener('click', function (e) {
+      e.preventDefault();
+      dialog.close();
+    });
+
+    dialog.addEventListener('click', function (e) {
+      if (e.target === dialog) dialog.close();
+    });
+
+    document.getElementById('searchInput').addEventListener('input', renderTable);
+    areaSelect.addEventListener('change', renderTable);
+    document.getElementById('hideEndedFilter').addEventListener('change', renderTable);
+
+    renderTable();
+  </script>
+</body>
+
+</html>
