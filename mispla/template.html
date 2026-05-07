@@ -16,11 +16,6 @@
       padding: 1rem;
     }
 
-    h1 {
-      font-size: 1.4rem;
-      margin-bottom: 0.25rem;
-    }
-
     .meta {
       font-size: 0.8rem;
       color: #666;
@@ -105,7 +100,7 @@
       border-radius: 6px;
       padding: 1.5rem;
       max-width: 560px;
-      width: 100%;
+      width: 80%;
     }
 
     dialog::backdrop {
@@ -257,89 +252,89 @@
     <p id="lastUpdated"></p>
   </header>
 
+  <div class="contentsbody">
+    <h1>イベント一覧</h1>
+    <p class="meta">最終更新: <span id="lastUpdated">--</span> ／ 表示専用ページです。参加状態の変更はアプリからどうぞ。</p>
 
-  <h1>イベント一覧</h1>
-  <p class="meta">最終更新: <span id="lastUpdated">--</span> ／ 表示専用ページです。参加状態の変更はアプリからどうぞ。</p>
+    <div class="filters">
+      <input type="text" id="searchInput" placeholder="イベント名で検索">
+      <select id="areaFilter">
+        <option value="">すべてのエリア</option>
+      </select>
+      <label>
+        <input type="checkbox" id="hideEndedFilter" checked>
+        終了済みを隠す
+      </label>
+      <span id="resultCount"></span>
+    </div>
 
-  <div class="filters">
-    <input type="text" id="searchInput" placeholder="イベント名で検索">
-    <select id="areaFilter">
-      <option value="">すべてのエリア</option>
-    </select>
-    <label>
-      <input type="checkbox" id="hideEndedFilter" checked>
-      終了済みを隠す
-    </label>
-    <span id="resultCount"></span>
-  </div>
-
-  <table>
-    <thead>
-      <tr>
-        <th>イベント名</th>
-        <th>開始</th>
-        <th>エリア</th>
-        <th>参加 / 定員</th>
-      </tr>
-    </thead>
-    <tbody id="eventTbody"></tbody>
-  </table>
-
-  <p class="no-data" id="noData" style="display:none">該当するイベントはありません</p>
-
-  <dialog id="detailDialog">
-    <h2 id="dTitle"></h2>
-    <table class="detail-table">
-      <tr>
-        <th>主催者</th>
-        <td id="dHost"></td>
-      </tr>
-      <tr>
-        <th>開始</th>
-        <td id="dStart"></td>
-      </tr>
-      <tr>
-        <th>終了</th>
-        <td id="dEnd"></td>
-      </tr>
-      <tr>
-        <th>エリア</th>
-        <td id="dArea"></td>
-      </tr>
-      <tr>
-        <th>場所</th>
-        <td id="dPlace"></td>
-      </tr>
-      <tr>
-        <th>定員</th>
-        <td id="dCapacity"></td>
-      </tr>
+    <table>
+      <thead>
+        <tr>
+          <th>イベント名</th>
+          <th>開始</th>
+          <th>エリア</th>
+          <th>参加 / 定員</th>
+        </tr>
+      </thead>
+      <tbody id="eventTbody"></tbody>
     </table>
-    <div id="dDescWrap">
-      <p style="font-size:0.8rem;color:#555;margin:0 0 0.3rem">概要</p>
-      <div class="description-box" id="dDesc"></div>
-    </div>
-    <div class="tags-section" id="dTagsWrap">
-      <h3>タグ</h3>
-      <div class="tag-list" id="dTags"></div>
-    </div>
-    <div class="participants-section">
-      <h3>参加者</h3>
-      <div id="dParticipants"></div>
-    </div>
-    <a href="#" class="dialog-close" id="dialogClose">閉じる</a>
-  </dialog>
 
-  <div id="ad-banner" style="text-align: center;">
-    <div class="ad-pc">
-      <script src="https://adm.shinobi.jp/s/d803ce14cb8127f899862ee566509aa8"></script>
-    </div>
+    <p class="no-data" id="noData" style="display:none">該当するイベントはありません</p>
 
-    <div class="ad-sp">
-      <script src="https://adm.shinobi.jp/s/86618523177f2c4a1819c7d5733ac04c"></script>
+    <dialog id="detailDialog">
+      <h2 id="dTitle"></h2>
+      <table class="detail-table">
+        <tr>
+          <th>主催者</th>
+          <td id="dHost"></td>
+        </tr>
+        <tr>
+          <th>開始</th>
+          <td id="dStart"></td>
+        </tr>
+        <tr>
+          <th>終了</th>
+          <td id="dEnd"></td>
+        </tr>
+        <tr>
+          <th>エリア</th>
+          <td id="dArea"></td>
+        </tr>
+        <tr>
+          <th>場所</th>
+          <td id="dPlace"></td>
+        </tr>
+        <tr>
+          <th>定員</th>
+          <td id="dCapacity"></td>
+        </tr>
+      </table>
+      <div id="dDescWrap">
+        <p style="font-size:0.8rem;color:#555;margin:0 0 0.3rem">概要</p>
+        <div class="description-box" id="dDesc"></div>
+      </div>
+      <div class="tags-section" id="dTagsWrap">
+        <h3>タグ</h3>
+        <div class="tag-list" id="dTags"></div>
+      </div>
+      <div class="participants-section">
+        <h3>参加者</h3>
+        <div id="dParticipants"></div>
+      </div>
+      <a href="#" class="dialog-close" id="dialogClose">閉じる</a>
+    </dialog>
+
+    <div id="ad-banner" style="text-align: center;">
+      <div class="ad-pc">
+        <script src="https://adm.shinobi.jp/s/d803ce14cb8127f899862ee566509aa8"></script>
+      </div>
+
+      <div class="ad-sp">
+        <script src="https://adm.shinobi.jp/s/86618523177f2c4a1819c7d5733ac04c"></script>
+      </div>
     </div>
   </div>
-
   <footer>
     <div id="footer"></div>
   </footer>
