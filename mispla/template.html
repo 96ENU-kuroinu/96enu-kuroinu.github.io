@@ -355,11 +355,8 @@
   <script>
     const EVENTS_DATA = __EVENTS_JSON__;
     const AREA_NAMES = __AREA_NAMES_JSON__;
-    const GENERATED_AT = "__GENERATED_AT__";
 
     const STATUS_LABELS = { join: '参加者', thinking: '検討中', cancel: '不参加' };
-
-    document.getElementById('lastUpdated').textContent = GENERATED_AT;
 
     // エリアフィルター生成
     const usedAreas = [...new Set(EVENTS_DATA.map(e => e.area_code).filter(Boolean))];

@@ -191,19 +191,9 @@ def generate_html(events_json: list[dict], template_path: Path, output_path: Pat
     """テンプレートHTMLにデータを埋め込んで出力する"""
     template = template_path.read_text(encoding="utf-8")
 
-    generated_at = datetime.now(timezone.utc).astimezone(
-        timezone(datetime.now().utcoffset() or __import__("datetime").timedelta(hours=9))
-    ).strftime("%Y-%m-%d %H:%M JST")
-
-    # 日本時間で生成日時を表示
-    import zoneinfo
-    jst = zoneinfo.ZoneInfo("Asia/Tokyo")
-    generated_at = datetime.now(jst).strftime("%Y/%m/%d %H:%M JST")
-
     html = template \
         .replace("__EVENTS_JSON__",    json.dumps(events_json, ensure_ascii=False)) \
         .replace("__AREA_NAMES_JSON__", json.dumps(AREA_NAMES, ensure_ascii=False)) \
-        .replace("__GENERATED_AT__",   generated_at)
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text(html, encoding="utf-8")
