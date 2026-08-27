@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../css/hr.css">
     <link rel="stylesheet" href="../css/ad-view.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>📜バージョン履歴</title>
+    <title>📜バージョン履歴 1.0系</title>
     <link rel="shortcut icon" type="image/x-icon" href="../imgs/mispla/favicon.ico">
     <!-- Google font Icon -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
@@ -56,19 +56,22 @@
                 </a>
                 <meta itemprop="position" content="3" />
             </li>
+
+            <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                <a itemprop="item" href="./version-history-1-0.html">
+                    <span itemprop="name">📜バージョン履歴 1.0系</span>
+                </a>
+                <meta itemprop="position" content="4" />
+            </li>
         </ol>
         <p id="lastUpdated"></p>
     </header>
 
     <div class="contentsbody">
-        <h1>📜バージョン履歴</h1>
+        <h1>📜バージョン履歴1.0系</h1>
         <div style="text-align: center;">
             <p class="button" id="openAllBtn"><a href="JavaScript:void(0)">すべての詳細をひらく</a></p>
             <p class="button" id="closeAllBtn"><a href="JavaScript:void(0)">すべての詳細をとじる</a></p>
-        </div>
-
-        <div id="toc">
-            <ul id="toc-list"></ul>
         </div>
 
         <!--
@@ -91,21 +94,90 @@
         <span class="button-like-text"></span>
         -->
 
-        <h2>1.2系</h2>
-        <p>リアクション機能を追加しました。</p>
-        <a href="./version-history-1-2.html">詳細な履歴を見る</a>
-
-        <h2>1.1系</h2>
-        <p>タグの登録機能を追加しました。</p>
-        <a href="./version-history-1-1.html">詳細な履歴を見る</a>
-
         <h2>1.0系</h2>
-        <p>android,iOSともに正式リリースしました。</p>
-        <a href="./version-history-1-0.html">詳細な履歴を見る</a>
+        <p>android,iOSともに正式リリースされたため、系を更新しました。</p>
 
-        <h2>0.1系</h2>
-        <p>クローズドテストを開始しました。</p>
-        <a href="./version-history-0-1.html">詳細な履歴を見る</a>
+        <details class="details" id="version1-0-4">
+            <summary class="summary">1.0.4(iOS:1.0.41)</summary>
+            <div class="content">
+                <hr class="new">
+                <hr class="change">
+                <hr class="fix">
+                <ul>
+                    <li>イベントの概要が改行できない不具合を修正しました。</li>
+                    <li>一部のデバイスでイベント作成画面の開始日時・終了日時ボタンが正常に表示できない不具合を修正しました。</li>
+                </ul>
+            </div>
+        </details>
+
+        <details class="details" id="version1-0-1">
+            <summary class="summary">1.0.1</summary>
+            <div class="content">
+                <hr class="new">
+                <ul>
+                    <li>イベントの公開・非公開を切り替えられる機能を追加しました。
+                        <div class="box-memo">
+                            <p>非公開にしたイベントは、「直近イベント」タブに表示されなくなります。<br>URLを知っていれば誰でもアクセスできるため、非公開のイベントに書く内容もプライバシーに十分な配慮をお願いします。
+                            </p>
+                        </div>
+                    </li>
+                    <li>イベントの共有方法を拡張しました。
+                        <ol>
+                            <li>Misskeyに共有</li>
+                            <li>Googleカレンダーに共有</li>
+                            <li>その他の場所に共有</li>
+                            <li>イベントURLをコピー</li>
+                            <li>QRコードを表示</li>
+                        </ol>
+                    </li>
+                    <li>以下の編集中にプレーンテキスト・MFMプレビューを切り替えられる機能を追加しました。
+                        <ul>
+                            <li>イベント概要</li>
+                            <li>コメント</li>
+                        </ul>
+                    </li>
+
+                </ul>
+                <hr class="change">
+                <ul>
+                    <li>イベント概要の最大文字数を3000文字に変更しました。</li>
+                    <li>閲覧モードに応じて開始日時・終了日時のUIを切り替えるように変更しました。</li>
+                    <li>定員を右詰め表示に変更しました。</li>
+                </ul>
+                <hr class="fix">
+                <ul>
+                    <li>自分の投稿したコメントに含まれるURLが見えなくなる不具合を修正しました。</li>
+                </ul>
+
+            </div>
+        </details>
+
+        <details class="details" id="version1-0-0">
+            <summary class="summary">1.0.0</summary>
+            <div class="content">
+                <hr class="new">
+                <ul>
+                    <li>以下のMFM表示に対応しました。</li>
+                    <ul>
+                        <li>ユーザー名</li>
+                        <li>イベント概要</li>
+                        <li>コメント</li>
+                    </ul>
+                    <li>イベントを地域別に絞り込んで表示できる機能を追加しました。</li>
+                    <li>URLからイベント詳細画面にアクセスした場合でも、戻るボタンでイベント一覧に戻れる機能を追加しました。</li>
+                    <li>削除されたイベントにアクセスした場合、トップページに切り替わる処理を追加しました。</li>
+                </ul>
+                <hr class="change">
+                <ul>
+                    <li><a href="https://apps.apple.com/jp/app/mispla/id6761639750">App Store</a>でのデフォルト言語を日本語に変更しました。
+                    </li>
+                </ul>
+                <hr class="fix">
+                <ul>
+                    <li>参加者数だけを変更してもイベントが更新できない不具合を修正しました。</li>
+                </ul>
+            </div>
+        </details>
 
         <img id="hover-image" src="" alt="画像" style="display:none;">
 
